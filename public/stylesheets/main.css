@@ -1,3 +1,7 @@
+body{
+    background-color: lightgrey;
+}
+
 #blue-title{
     color: #6EC2F6;
 }
@@ -21,4 +25,15 @@
 }
 .btn-success{
     background-color: #6EC2F6;
+}
+.navbar-default .navbar-toggle .icon-bar{
+   color:white;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
+    background-color: black;
+}
+#posterSize img{
+    height: 350px;
+    width: 282px;
+    padding: 10px;
 }
