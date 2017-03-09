@@ -19,5 +19,10 @@ public class HomeController extends Controller {
     public Result index() {
         return ok(index.render());
     }
-
+    public Result film() {
+        return ok(film.render());
+    }
+    //public Result adminFilm() {
+      //  return ok(adminFilm().render());
+    //}
 }
