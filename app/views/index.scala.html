@@ -1,10 +1,22 @@
-
-@main("Index") {
+@(user: models.users.User, films: List[models.Film], env: play.api.Environment)
+@main("Index", user) {
     <div class="row">
         <div class="col-lg-12">
                 <!-- Carousel
     ================================================== -->
+            @if(flash().containsKey("success")){
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="alert alert-success">
+                            <strong>@flash().get("success")</strong>
+                        </div>
+                    </div>
+                </div>
 
+            }
+            @if(user != null){
+                <h1>Welcome back: @user.getName</h1>
+            }
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
                 <ol class="carousel-indicators">
@@ -57,6 +69,19 @@
                 <h1 class="page-header">Films</h1><!--Want to anchor this to the films button at top-->
                 <!-- 4 posters to a row each poster for a particular movie on click go to movies own page pulled from db-->
                 <div class="row">
+                    <div class="col-xs-12" id="posterSize">
+                        @for(f <- films){
+                            @if(env.resource("public/images/FilmPosters/" + f.getTitle + ".jpg").isDefined){
+                                <a href="@routes.HomeController.viewMovie(f.getTitle)"><img src="/assets/images/FilmPosters/@(f.getTitle + ".jpg")" /></a>
+                            }else{
+                                <a href="@routes.HomeController.viewMovie(f.getTitle)"><img src="/assets/images/FilmPosters/noImage.jpg" /></a>
+
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+                <!--<div class="row">
                     <div class="col-lg-3 col-sm-12" id="posterSize">
                         <img src="/assets/images/FilmPosters/1.jpg">
                     </div>
@@ -69,54 +94,9 @@
                     <div class="col-lg-3 col-sm-12" id="posterSize">
                         <img src="/assets/images/FilmPosters/4.jpg">
                     </div>
-                </div>
-                    <!-- 4 posters to a row each poster for a particular movie on click go to movies own page pulled from db-->
-                <div class="row">
-                    <div class="col-lg-3 col-sm-12" id="posterSize">
-                        <img src="/assets/images/FilmPosters/5.jpg">
-                    </div>
-                    <div class="col-lg-3 col-sm-12" id="posterSize">
-                        <img src="/assets/images/FilmPosters/6.jpg">
-                    </div>
-                    <div class="col-lg-3 col-sm-12" id="posterSize">
-                        <img src="/assets/images/FilmPosters/7.jpg">
-                    </div>
-                    <div class="col-lg-3 col-sm-12" id="posterSize">
-                        <img src="/assets/images/FilmPosters/8.jpg">
-                    </div>
-                </div>
-                    <!-- 4 posters to a row each poster for a particular movie on click go to movies own page pulled from db-->
-                <div class="row">
-                    <div class="col-lg-3 col-sm-12" id="posterSize">
-                        <img src="/assets/images/FilmPosters/9.jpg">
-                    </div>
-                    <div class="col-lg-3 col-sm-12" id="posterSize">
-                        <img src="/assets/images/FilmPosters/10.jpg">
-                    </div>
-                    <div class="col-lg-3 col-sm-12" id="posterSize">
-                        <img src="/assets/images/FilmPosters/1.jpg">
-                    </div>
-                    <div class="col-lg-3 col-sm-12" id="posterSize">
-                        <img src="/assets/images/FilmPosters/2.jpg">
-                    </div>
-                </div>
-                    <!-- 4 posters to a row each poster for a particular movie on click go to movies own page pulled from db-->
-                <div class="row">
-                    <div class="col-lg-3 col-sm-12" id="posterSize">
-                        <img src="/assets/images/FilmPosters/5.jpg">
-                    </div>
-                    <div class="col-lg-3 col-sm-12" id="posterSize">
-                        <img src="/assets/images/FilmPosters/6.jpg">
-                    </div>
-                    <div class="col-lg-3 col-sm-12" id="posterSize">
-                        <img src="/assets/images/FilmPosters/7.jpg">
-                    </div>
-                    <div class="col-lg-3 col-sm-12" id="posterSize">
-                        <img src="/assets/images/FilmPosters/8.jpg">
-                    </div>
-                </div>
-            </div>
+                </div>-->
         </div>
+
     </div>
 
 

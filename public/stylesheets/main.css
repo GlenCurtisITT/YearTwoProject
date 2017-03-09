@@ -109,3 +109,7 @@ ul.social-buttons{
 #right-btn{
     float: right;
 }
+
+#margBottom{
+    margin-bottom: 20px;
+}

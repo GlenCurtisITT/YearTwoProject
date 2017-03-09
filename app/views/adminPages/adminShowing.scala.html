@@ -1,5 +1,5 @@
-<!--All info on this page to be pulled in from the db-->
-@main("adminShowing") {
+@(user: models.users.User)
+@adminPages.adminMain("adminShowing", user) {
     <div class="container">
 
         <div class="row">
