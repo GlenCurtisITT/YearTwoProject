@@ -9,7 +9,7 @@ import com.avaje.ebean.*;
 
 @Entity
 public class Film extends Model{
-    @Id
+    @Id //Primary Key
     private String title;
     private String director;
     private String trailerURL;

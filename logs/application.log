@@ -1,0 +1,4 @@
+2017-03-09 23:56:47,870 [INFO] from application in ForkJoinPool-1-worker-1 - Creating Pool for datasource 'default'
+2017-03-09 23:56:47,910 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-1 - Database [default] connected at jdbc:h2:file:./data/cinemaDB
+2017-03-09 23:56:48,492 [INFO] from application in ForkJoinPool-1-worker-1 - ApplicationTimer demo: Starting application at 2017-03-09T23:56:48.491Z
+2017-03-09 23:56:49,024 [INFO] from play.api.Play in ForkJoinPool-1-worker-1 - Application started (Dev)
